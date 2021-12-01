@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
+    <ProjectGuid>{548D806E-4D83-4432-B3B7-30897AD5E74E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AESEngine</RootNamespace>
+    <AssemblyName>AESEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Exception\DataLengthException.cs" />
+    <Compile Include="Exception\InvalidCipherTextException.cs" />
+    <Compile Include="Exception\OutputLengthException.cs" />
+    <Compile Include="Utils\Arrays.cs" />
+    <Compile Include="Utils\Pack.cs" />
+    <Compile Include="Exception\NullPointerException.cs" />
+    <Compile Include="Exception\IllegalArgumentException.cs" />
+    <Compile Include="Exception\IndexOutOfBoundsException.cs" />
+    <Compile Include="AESEngine.cs" />
+    <Compile Include="Utils\PKCS7Padding.cs" />
+    <Compile Include="Exception\IllegalStateException.cs" />
+    <Compile Include="Utils\CBCBlockCipher.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exception\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
